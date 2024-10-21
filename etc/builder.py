@@ -1,0 +1,37 @@
+from genSub import GenSub
+from iocbuilder import AutoSubstitution, Device
+from iocbuilder.modules.calc import Calc
+from iocbuilder.modules.streamDevice import AutoProtocol
+
+
+class OXCryoLib(Device):
+    LibFileList = ["OXCryo"]
+    DbdFileList = ["OXCryoSupport"]
+    AutoInstantiate = True
+
+
+class OXPH700(AutoSubstitution, AutoProtocol, Device):
+    Dependencies = (GenSub, OXCryoLib, Calc)
+    # Substitution attributes
+    TemplateFile = "OXPH700.template"
+
+    # AutoProtocol attributes
+    ProtocolFiles = ["OXCS700.proto"]
+
+
+class OXCS700(AutoSubstitution, AutoProtocol, Device):
+    Dependencies = (GenSub, OXCryoLib, Calc)
+    # Substitution attributes
+    TemplateFile = "OXCS700.template"
+
+    # AutoProtocol attributes
+    ProtocolFiles = ["OXCS700.proto"]
+
+
+class OXCB700(AutoSubstitution, AutoProtocol, Device):
+    Dependencies = (GenSub, OXCryoLib, Calc)
+    # Substitution attributes
+    TemplateFile = "OXCB700.template"
+
+    # AutoProtocol attributes
+    ProtocolFiles = ["OXCB700.proto"]

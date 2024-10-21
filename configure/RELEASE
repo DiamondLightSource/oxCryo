@@ -1,0 +1,27 @@
+#RELEASE Location of external products
+# Run "gnumake clean uninstall install" in the application
+# top directory each time this file is changed.
+#
+# NOTE: The build does not check dependancies on files
+# external to this application. Thus you should run
+# "gnumake clean uninstall install" in the top directory
+# each time EPICS_BASE, SNCSEQ, or any other external
+# module defined in the RELEASE file is rebuilt.
+
+TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
+SUPPORT=/dls_sw/prod/R3.14.12.7/support
+#WORK=/dls_sw/work/R3.14.12.7/support
+
+# External module definitions (prod release).
+STREAM=	$(SUPPORT)/streamDevice/2-5dls14
+ASYN=   $(SUPPORT)/asyn/4-41dls2
+GENSUB= $(SUPPORT)/genSub/1-8dls3
+CALC=   $(SUPPORT)/calc/3-7-3
+
+# EPICS_BASE usually appears last so other apps can override stuff:
+EPICS_BASE=/dls_sw/epics/R3.14.12.7/base
+
+#Capfast users may need the following definitions
+#CAPFAST_TEMPLATES=
+#SCH2EDIF_PATH=
+-include $(TOP)/configure/RELEASE.private
