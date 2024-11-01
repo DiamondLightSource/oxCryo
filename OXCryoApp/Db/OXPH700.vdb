@@ -45,7 +45,7 @@ record(mbbi, "$(P)$(Q):PHASE") {
   field(TEST, "Wait")
 }
 
-expand("OXcommon700.vdb", OXcommon700) {
+expand("OXcommon700.vdb", OXcommon) {
 }
 
 # %gdatag,pv,rw,$(gda_name=),RTEMP
@@ -81,7 +81,7 @@ record(ai, "$(P)$(Q):BACKPRESS") {
 #! View(2020,353,0.6)
 #! Record("$(P)$(Q):PHASE",4060,659,0,0,"$(P)$(Q):PHASE")
 
-#! TemplateInstance("OXcommon700",3800,780,0,"")
+#! TemplateInstance("OXcommon",3800,780,0,"")
 
 #! Record("$(P)$(Q):CSTYPE",4460,742,0,1,"$(P)$(Q):CSTYPE")
 #! Record("$(P)$(Q):BACKPRESS",4260,802,0,0,"$(P)$(Q):BACKPRESS")

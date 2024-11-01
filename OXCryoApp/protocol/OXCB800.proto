@@ -2,7 +2,7 @@ Terminator = "";
 ReadTimeout = 100;
 PollPeriod = 100;
 ReplyTimeout = 2000;
-#MaxInput = 44;
+MaxInput = 44;
 
 # read status input
 # 44 byte packet:
@@ -21,7 +21,7 @@ ReplyTimeout = 2000;
 # 20: unsigned char GasFlow (deci-litres/min)
 # 21: unsigned char GasHeat (%)
 # 22: unsigned char RefrHeat (%)
-# 23: unsigned char UnusedOne
+# 23: unsigned char SupplyPressure (centi-bar)
 # 24: unsigned char LinePressure (centi-bar)
 # 25: unsigned char Alarm (enum, values 0..16)
 # 26,27: unsigned short RunTime (minutes)
@@ -30,25 +30,26 @@ ReplyTimeout = 2000;
 # 31: unsigned char CryoStatus
 # 32: unsigned char CryoAdjust (rpm)
 # 33: unsigned char CryoSpeed (rpm)
-# 34: unsigned char TurboMode
+# 34: unsigned char TurboMode (%)
 # 35: unsigned char HardwareType
-# 36: unsigned char ShutterState
-# 37: unsigned char ShutterTime (s)
+# 36: unsigned char WaterTemp (Celsius)
+# 37: unsigned char HeReturnPressue (deci-bar)
 # 38: unsigned char AvgGasHeat (%)
 # 39: unsigned char VacuumGaugePower
 # 40: unsigned char Suspended ()
-# 41: unsigned char UnusedTwo (unused in module)
+# 41: unsigned char UnusedOne (unused in module)
 # 42,43: unsigned short TotalHours (hour)
 
 read { in "%0r%(\$1:TYPE.RVAL)0r%(\$1:SETPOINT.RVAL)02r"
-          "%(\$1:TEMP.RVAL)02r%(\$1:ERROR.RVAL)2r"
+          "%(\$1:TEMP.RVAL)02r%(\$1:ERROR.RVAL)02r"
           "%(\$1:RUNMODE.RVAL)0r%(\$1:PHASE.RVAL)0r%(\$1:RAMPRATE.RVAL)02r"
           "%(\$1:TARGETTEMP.RVAL)02r%(\$1:REFRTEMP.RVAL)02r"
           "%(\$1:VACGAUGE.RVAL)02r%(\$1:REMAINING.RVAL)02r%(\$1:GASFLOW.RVAL)0r"
-          "%(\$1:GASHEAT.RVAL)0r%(\$1:REFRHEAT.RVAL)0r%0r"
+          "%(\$1:GASHEAT.RVAL)0r%(\$1:REFRHEAT.RVAL)0r%(\$1:SUPPLYPRES.RVAL)0r"
           "%(\$1:BACKPRESS.RVAL)0r%(\$1:ALARMI.RVAL)0r%(\$1:RUNTIME.RVAL)02r"
           "%(\$1:CTRLNUM.RVAL)02r%(\$1:VER.RVAL)0r%(\$1:CRYOSTATUS.RVAL)0r"
           "%(\$1:CRYOADJUST.RVAL)0r%(\$1:CRYOSPEED.RVAL)0r%(\$1:TURBOMODE.RVAL)0r"
           "%(\$1:HARDWARETYPE.RVAL)0r%(\$1:WATERTEMP.RVAL)0r%(\$1:RETPRESS.RVAL)0r"
           "%(\$1:GASHEATAVG.RVAL)0r%(\$1:VACGAUGEPWR.RVAL)0r%(\$1:SUSPENDED.RVAL)0r"
           "%0r%(\$1:HOURS.RVAL)02r"; }
+          

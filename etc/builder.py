@@ -16,7 +16,7 @@ class OXPH700(AutoSubstitution, AutoProtocol, Device):
     TemplateFile = "OXPH700.template"
 
     # AutoProtocol attributes
-    ProtocolFiles = ["OXCS700.proto"]
+    ProtocolFiles = ["OXcommon.proto", "OXCS700.proto"]
 
 
 class OXCS700(AutoSubstitution, AutoProtocol, Device):
@@ -25,7 +25,7 @@ class OXCS700(AutoSubstitution, AutoProtocol, Device):
     TemplateFile = "OXCS700.template"
 
     # AutoProtocol attributes
-    ProtocolFiles = ["OXCS700.proto"]
+    ProtocolFiles = ["OXcommon.proto", "OXCS700.proto"]
 
 
 class OXCB700(AutoSubstitution, AutoProtocol, Device):
@@ -34,4 +34,13 @@ class OXCB700(AutoSubstitution, AutoProtocol, Device):
     TemplateFile = "OXCB700.template"
 
     # AutoProtocol attributes
-    ProtocolFiles = ["OXCB700.proto"]
+    ProtocolFiles = ["OXcommon.proto", "OXCB700.proto"]
+
+
+class OXCB800(AutoSubstitution, AutoProtocol, Device):
+    Dependencies = (GenSub, OXCryoLib, Calc)
+    # Substitution attributes
+    TemplateFile = "OXCB800.template"
+
+    # AutoProtocol attributes
+    ProtocolFiles = ["OXcommon.proto", "OXCB800.proto"]

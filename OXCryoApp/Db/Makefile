@@ -12,6 +12,7 @@ include $(TOP)/configure/CONFIG
 # templates like this
 #
 DB += OXCB700.template
+DB += OXCB800.template
 DB += OXCS700.template
 DB += OXPH700.template
 

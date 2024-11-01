@@ -3,7 +3,7 @@
 #! DBD("../../dbd/OXCryovdct.dbd")
 #! DBDEND
 
-# % macro, __doc__, Control for Oxford cryostream 700 series
+# % macro, __doc__, Control for Oxford Cryostream 800 series (Cobra)
 #
 # Macros:
 # % macro, P, Device Prefix
@@ -12,10 +12,10 @@
 # % macro, gda_name, Name in gda interface file (Default = )
 # % macro, gda_desc, Description in gda interface file (Default = )
 # % macro, name, Object and gui association name
-#% gui, $(name=), edm, OXCS700.edl, CS=$(P)$(Q)
-#% gui, $(name=), edmembed, OXCS700_embed.edl, P=$(P),Q=$(Q)
+#% gui, $(name=), edm, OXCB800.edl, CS=$(P)$(Q)
+#% gui, $(name=), edmembed, OXCB800_embed.edl, P=$(P),Q=$(Q)
 
-# %gdatag,template,OXCS700,$(gda_name=),$(gda_desc=)
+# %gdatag,template,OXCB800,$(gda_name=),$(gda_desc=)
 
 # % archiver 1 Monitor
 # %gdatag,mbbinary,ro,$(gda_name=),PHASE
@@ -59,21 +59,57 @@ record(ai, "$(P)$(Q):BACKPRESS") {
   field(EGU, "bar")
 }
 
-expand("OXcommon700.vdb", OXcommon) {
+expand("OXcommonCB.vdb", OXcommonCB) {
 }
 
-record(ai, "$(P)$(Q):CSTYPE") {
-  field(DESC, "Cryostream type")
-  field(PINI, "YES")
-  field(VAL, "0")
+#% gui, $(name=), sevr
+record(ai, "$(P)$(Q):STATUS") {
+  field(SCAN, ".5 second")
+  field(DTYP, "stream")
+  field(VAL, "1")
+  field(INP, "@OXCB800.proto read($(P)$(Q)) $(PORT)")
+  field(SDIS, "$(P)$(Q):DISABLE")  
 }
+
+# % archiver 1 Monitor
+record(ai, "$(P)$(Q):SUPPLYPRES") {
+  field(DESC, "Supplied Gas Pressure")
+  field(DTYP, "Raw Soft Channel")
+  field(PINI, "YES")
+  field(EGU, "mbar")
+}
+
+# % archiver 1 Monitor
+record(ai, "$(P)$(Q):WATERTEMP") {
+  field(DESC, "Cryodrive Water Temperature")
+  field(DTYP, "Raw Soft Channel")
+  field(PINI, "YES")
+  field(LINR, "LINEAR")
+  field(ESLO, "0.01")
+  field(EOFF, "0")
+  field(PREC, "2")
+  field(EGU, "C")
+}
+
+# % archiver 1 Monitor
+record(ai, "$(P)$(Q):RETPRESS") {
+  field(DESC, "Cryodrive He pressure")
+  field(DTYP, "Raw Soft Channel")
+  field(PINI, "YES")
+  field(LINR, "LINEAR")
+  field(ESLO, "0.01")
+  field(EOFF, "0")
+  field(PREC, "2")
+  field(EGU, "bar")
+}
+
 
 #! Further lines contain data used by VisualDCT
 #! View(1966,299,0.6)
 #! Record("$(P)$(Q):PHASE",4060,645,0,0,"$(P)$(Q):PHASE")
 #! Record("$(P)$(Q):BACKPRESS",4260,709,0,0,"$(P)$(Q):BACKPRESS")
 
-#! TemplateInstance("OXcommon",3800,780,0,"")
+#! TemplateInstance("OXcommonCB",3800,780,0,"")
 
 #! Record("$(P)$(Q):CSTYPE",4460,742,0,1,"$(P)$(Q):CSTYPE")
 
