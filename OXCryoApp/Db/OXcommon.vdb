@@ -584,13 +584,29 @@ record(ai, "$(P)$(Q):TEMP") {
 }
 
 # % archiver 1 Monitor
-record(ai, "$(P)$(Q):ERROR") {
-  field(DESC, "Error")
+record(ai, "$(P)$(Q):ERROR:SIGNED") {
+  field(DESC, "Error (signed int16)")
   field(DTYP, "Raw Soft Channel")
   field(PINI, "YES")
-  field(LINR, "LINEAR")
-  field(ESLO, "0.01")
-  field(EOFF, "0")
+  field(LINR, "NO CONVERSION")
+  field(EGU, "cK")
+  field(FLNK, "$(P)$(Q):ERROR:SCALE")
+}
+
+record(calcout, "$(P)$(Q):ERROR:SCALE") {
+  field(INPA, "$(P)$(Q):ERROR:SIGNED.RVAL")
+  field(CALC, "A<32768?A:A-65536")  # reinterpret as signed 16-bit
+  field(OUT, "$(P)$(Q):ERROR.RVAL PP")    # output to scaled version
+}
+
+# % archiver 1 Monitor
+record(ai, "$(P)$(Q):ERROR") {
+  field(DESC, "Error")
+  field(PINI, "YES")
+  field(DTYP, "Raw Soft Channel")
+  field(LINR, "NO CONVERSION")
+  field(ASLO, "0.01")
+  field(AOFF, "0.0")
   field(PREC, "2")
   field(EGU, "K")
 }

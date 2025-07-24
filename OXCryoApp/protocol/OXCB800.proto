@@ -41,7 +41,7 @@ MaxInput = 44;
 # 42,43: unsigned short TotalHours (hour)
 
 read { in "%0r%(\$1:TYPE.RVAL)0r%(\$1:SETPOINT.RVAL)02r"
-          "%(\$1:TEMP.RVAL)02r%(\$1:ERROR.RVAL)02r"
+          "%(\$1:TEMP.RVAL)02r%(\$1:ERROR:SIGNED.RVAL)02r"
           "%(\$1:RUNMODE.RVAL)0r%(\$1:PHASE.RVAL)0r%(\$1:RAMPRATE.RVAL)02r"
           "%(\$1:TARGETTEMP.RVAL)02r%(\$1:REFRTEMP.RVAL)02r"
           "%(\$1:VACGAUGE.RVAL)02r%(\$1:REMAINING.RVAL)02r%(\$1:GASFLOW.RVAL)0r"
@@ -52,4 +52,4 @@ read { in "%0r%(\$1:TYPE.RVAL)0r%(\$1:SETPOINT.RVAL)02r"
           "%(\$1:HARDWARETYPE.RVAL)0r%(\$1:WATERTEMP.RVAL)0r%(\$1:RETPRESS.RVAL)0r"
           "%(\$1:GASHEATAVG.RVAL)0r%(\$1:VACGAUGEPWR.RVAL)0r%(\$1:SUSPENDED.RVAL)0r"
           "%0r%(\$1:HOURS.RVAL)02r"; }
-          
+
