@@ -88,10 +88,10 @@ record(ai, "$(P)$(Q):VACGAUGE") {
   field(DTYP, "Raw Soft Channel")
   field(PINI, "YES")
   field(LINR, "LINEAR")
-  field(ESLO, "0.01")
+  field(ESLO, "0.001")
   field(EOFF, "0")
-  field(PREC, "2")
-  field(EGU, "mV")
+  field(PREC, "3")
+  field(EGU, "V")
 }
 
 # % archiver 1 Monitor
@@ -106,10 +106,6 @@ record(ai, "$(P)$(Q):CRYOADJUST") {
   field(DESC, "Cryodrive Speed Boost")
   field(DTYP, "Raw Soft Channel")
   field(PINI, "YES")
-  field(LINR, "LINEAR")
-  field(ESLO, "0.01")
-  field(EOFF, "0")
-  field(PREC, "2")
   field(EGU, "rpm")
 }
 
@@ -118,10 +114,6 @@ record(ai, "$(P)$(Q):CRYOSPEED") {
   field(DESC, "Cryodrive Speed")
   field(DTYP, "Raw Soft Channel")
   field(PINI, "YES")
-  field(LINR, "LINEAR")
-  field(ESLO, "0.01")
-  field(EOFF, "0")
-  field(PREC, "2")
   field(EGU, "rpm")
 }
 
@@ -130,10 +122,6 @@ record(ai, "$(P)$(Q):GASHEATAVG") {
   field(DESC, "Average value of gas heater")
   field(DTYP, "Raw Soft Channel")
   field(PINI, "YES")
-  field(LINR, "LINEAR")
-  field(ESLO, "0.01")
-  field(EOFF, "0")
-  field(PREC, "2")
   field(EGU, "%")
 }
 
@@ -142,11 +130,6 @@ record(ai, "$(P)$(Q):VACGAUGEPWR") {
   field(DESC, "Power to vacuum gauage")
   field(DTYP, "Raw Soft Channel")
   field(PINI, "YES")
-  field(LINR, "LINEAR")
-  field(ESLO, "0.01")
-  field(EOFF, "0")
-  field(PREC, "2")
-#   field(EGU, "%")
 }
 
 # % archiver 1 Monitor

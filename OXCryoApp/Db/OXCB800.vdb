@@ -76,7 +76,11 @@ record(ai, "$(P)$(Q):SUPPLYPRES") {
   field(DESC, "Supplied Gas Pressure")
   field(DTYP, "Raw Soft Channel")
   field(PINI, "YES")
-  field(EGU, "mbar")
+  field(LINR, "LINEAR")
+  field(ESLO, "0.01")
+  field(EOFF, "0")
+  field(PREC, "2")
+  field(EGU, "bar")
 }
 
 # % archiver 1 Monitor
@@ -84,10 +88,6 @@ record(ai, "$(P)$(Q):WATERTEMP") {
   field(DESC, "Cryodrive Water Temperature")
   field(DTYP, "Raw Soft Channel")
   field(PINI, "YES")
-  field(LINR, "LINEAR")
-  field(ESLO, "0.01")
-  field(EOFF, "0")
-  field(PREC, "2")
   field(EGU, "C")
 }
 
@@ -97,7 +97,7 @@ record(ai, "$(P)$(Q):RETPRESS") {
   field(DTYP, "Raw Soft Channel")
   field(PINI, "YES")
   field(LINR, "LINEAR")
-  field(ESLO, "0.01")
+  field(ESLO, "0.1")
   field(EOFF, "0")
   field(PREC, "2")
   field(EGU, "bar")
