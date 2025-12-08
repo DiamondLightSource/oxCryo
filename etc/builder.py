@@ -37,6 +37,15 @@ class OXCB700(AutoSubstitution, AutoProtocol, Device):
     ProtocolFiles = ["OXcommon.proto", "OXCB700.proto"]
 
 
+class OXNH700(AutoSubstitution, AutoProtocol, Device):
+    Dependencies = (GenSub, OXCryoLib, Calc)
+    # Substitution attributes
+    TemplateFile = "OXNH700.template"
+
+    # AutoProtocol attributes
+    ProtocolFiles = ["OXcommon.proto", "OXNH700.proto"]
+
+
 class OXCB800(AutoSubstitution, AutoProtocol, Device):
     Dependencies = (GenSub, OXCryoLib, Calc)
     # Substitution attributes

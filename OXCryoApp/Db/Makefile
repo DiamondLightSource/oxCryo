@@ -15,6 +15,8 @@ DB += OXCB700.template
 DB += OXCB800.template
 DB += OXCS700.template
 DB += OXPH700.template
+DB += OXNH700.template
+
 
 include $(TOP)/configure/RULES
 #----------------------------------------
