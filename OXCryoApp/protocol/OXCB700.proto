@@ -4,6 +4,14 @@ PollPeriod = 100;
 ReplyTimeout = 2000;
 #MaxInput = 44;
 
+# structure of valid command packet is
+# char size of packet
+# char type of packet
+# char *params, list of params
+
+turbo   { out "\x03\x14%(\$1:TURBO.RVAL)r"; }
+
+
 # read status input
 # 44 byte packet:
 # 0: unsigned char Length = always 44, ignored
