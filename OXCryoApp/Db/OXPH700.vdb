@@ -45,7 +45,16 @@ record(mbbi, "$(P)$(Q):PHASE") {
   field(TEST, "Wait")
 }
 
-expand("OXcommon700.vdb", OXcommon) {
+expand("OXcommon.vdb", OXcommon) {
+}
+
+#% gui, $(name=), sevr
+record(ai, "$(P)$(Q):STATUS") {
+  field(SCAN, ".5 second")
+  field(DTYP, "stream")
+  field(VAL, "1")
+  field(INP, "@OXCS700.proto read($(P)$(Q)) $(PORT)")
+  field(SDIS, "$(P)$(Q):DISABLE")
 }
 
 # %gdatag,pv,rw,$(gda_name=),RTEMP
