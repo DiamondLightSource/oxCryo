@@ -108,10 +108,6 @@ record(ai, "$(P)$(Q):NOZZLEHEATAVG") {
   field(DESC, "Average value of nozzle heater")
   field(DTYP, "Raw Soft Channel")
   field(PINI, "YES")
-  field(LINR, "LINEAR")
-  field(ESLO, "0.01")
-  field(EOFF, "0")
-  field(PREC, "2")
   field(EGU, "%")
 }
 
@@ -158,10 +154,6 @@ record(ai, "$(P)$(Q):WATERTEMP") {
   field(DESC, "Cryodrive Water Temperature")
   field(DTYP, "Raw Soft Channel")
   field(PINI, "YES")
-  field(LINR, "LINEAR")
-  field(ESLO, "0.01")
-  field(EOFF, "0")
-  field(PREC, "2")
   field(EGU, "C")
 }
 
@@ -171,7 +163,7 @@ record(ai, "$(P)$(Q):RETPRESS") {
   field(DTYP, "Raw Soft Channel")
   field(PINI, "YES")
   field(LINR, "LINEAR")
-  field(ESLO, "0.01")
+  field(ESLO, "0.1")
   field(EOFF, "0")
   field(PREC, "2")
   field(EGU, "bar")
