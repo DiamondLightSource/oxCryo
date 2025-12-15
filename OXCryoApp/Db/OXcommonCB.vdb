@@ -12,7 +12,8 @@
 # % macro, gda_name, Name in gda interface file (Default = )
 # % macro, gda_desc, Description in gda interface file (Default = )
 # % macro, name, Object and gui association name
-
+# % macro, CTEMP_DRVL, macro to set CTEMP.DRVL
+# % macro, CTEMP_DRVH, mactro to set CTEMP.DRVH
 # % archiver 1 Monitor
 # %gdatag,mbbinary,ro,$(gda_name=),PHASE
 record(mbbi, "$(P)$(Q):PHASE") {
@@ -56,6 +57,8 @@ record(ai, "$(P)$(Q):BACKPRESS") {
 }
 
 expand("OXcommon.vdb", OXcommon) {
+  macro(CTEMP_DRVL, "$(CTEMP_DRVL)")
+  macro(CTEMP_DRVH, "$(CTEMP_DRVH)")
 }
 
 # % archiver 1 Monitor

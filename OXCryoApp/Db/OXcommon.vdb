@@ -4,7 +4,8 @@
 #! DBDEND
 
 # % macro, DISABLE_COMMS, Optional macro to control whether comms are disabled (1) or not (0) on startup. Defaults to disabled
-
+# % macro, CTEMP_DRVL, macro to set CTEMP.DRVL
+# % macro, CTEMP_DRVH, mactro to set CTEMP.DRVH
 record(mbbi, "$(P)$(Q):TYPE")
 {
   field(DESC, "Status Packet Type")
@@ -282,8 +283,8 @@ record(ao, "$(P)$(Q):CTEMP") {
   field(EOFF, "0")
   field(PREC, "2")
   field(EGU, "K")
-  field(DRVL, "80.00")
-  field(DRVH, "327.67")
+  field(DRVL, "$(CTEMP_DRVL)")
+  field(DRVH, "$(CTEMP_DRVH)")
   field(FLNK, "$(P)$(Q):CTEMPCH")
 }
 
