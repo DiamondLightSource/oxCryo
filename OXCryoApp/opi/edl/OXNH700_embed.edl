@@ -48,7 +48,7 @@ buttonLabel "$(label)"
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "OXCB800.edl"
+  0 "OXNH700.edl"
 }
 symbols {
   0 "CS=$(P)$(Q)"
