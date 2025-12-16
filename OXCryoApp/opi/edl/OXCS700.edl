@@ -4,7 +4,7 @@ major 4
 minor 0
 release 1
 x 527
-y 116
+y 399
 w 653
 h 765
 font "arial-medium-r-18.0"
@@ -1613,13 +1613,13 @@ beginObjectProperties
 major 4
 minor 6
 release 0
-x 135
+x 222
 y 5
-w 160
+w 70
 h 20
 controlPv "$(CS):MODEL"
 font "arial-bold-r-14.0"
-fontAlign "right"
+fontAlign "center"
 fgColor index 14
 bgColor index 48
 limitsFromDb
@@ -2373,5 +2373,25 @@ endGroup
 visPv "$(CS):CSTYPE"
 visMin "0"
 visMax "1"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 135
+y 5
+w 85
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Cryostream"
+}
 endObjectProperties
 

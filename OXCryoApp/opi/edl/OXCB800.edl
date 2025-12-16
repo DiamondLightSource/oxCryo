@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 890
-y 464
+x 1195
+y 475
 w 653
 h 1020
 font "arial-medium-r-18.0"
@@ -1465,13 +1465,13 @@ beginObjectProperties
 major 4
 minor 6
 release 0
-x 135
+x 195
 y 5
-w 160
+w 70
 h 20
 controlPv "$(CS):MODEL"
 font "arial-bold-r-14.0"
-fontAlign "right"
+fontAlign "center"
 fgColor index 14
 bgColor index 48
 limitsFromDb
@@ -1488,7 +1488,7 @@ beginObjectProperties
 major 4
 minor 6
 release 0
-x 293
+x 265
 y 5
 w 98
 h 20
@@ -1511,7 +1511,7 @@ beginObjectProperties
 major 4
 minor 6
 release 0
-x 388
+x 360
 y 5
 w 150
 h 20
@@ -2748,6 +2748,26 @@ bgColor index 0
 useDisplayBg
 value {
   "Time Running"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 105
+y 5
+w 85
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Cobra"
 }
 endObjectProperties
 

@@ -168,8 +168,8 @@ record(mbbiDirect, "$(P)$(Q):HARDWARETYPE") {
 record(bi, "$(P)$(Q):MODEL")
 {
   field(INP,  "$(P)$(Q):HARDWARETYPE.B0 CP")
-  field(ZNAM, "Cryostream Standard")
-  field(ONAM, "Cryostream Plus")
+  field(ZNAM, "Standard")
+  field(ONAM, "Plus")
 }
 
 record(bi, "$(P)$(Q):CRYOSHUTTER")

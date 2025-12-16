@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1276
-y 644
+x 99
+y 447
 w 653
 h 1020
 font "arial-medium-r-18.0"
@@ -21,7 +21,6 @@ topShadowColor index 0
 botShadowColor index 14
 title "Oxford Cryostream - $(CS)"
 showGrid
-snapToGrid
 gridSize 5
 disableScroll
 endScreenProperties
@@ -1465,13 +1464,13 @@ beginObjectProperties
 major 4
 minor 6
 release 0
-x 135
+x 196
 y 5
-w 160
+w 70
 h 20
 controlPv "$(CS):MODEL"
 font "arial-bold-r-14.0"
-fontAlign "right"
+fontAlign "center"
 fgColor index 14
 bgColor index 48
 limitsFromDb
@@ -1488,7 +1487,7 @@ beginObjectProperties
 major 4
 minor 6
 release 0
-x 293
+x 265
 y 5
 w 98
 h 20
@@ -1511,7 +1510,7 @@ beginObjectProperties
 major 4
 minor 6
 release 0
-x 388
+x 360
 y 5
 w 150
 h 20
@@ -2706,5 +2705,25 @@ endGroup
 visPv "$(CS):CSTYPE"
 visMin "0"
 visMax "1"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 107
+y 5
+w 85
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Cobra"
+}
 endObjectProperties
 
