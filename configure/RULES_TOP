@@ -1,3 +1,7 @@
 #RULES_TOP
-include $(EPICS_BASE)/configure/RULES_TOP
-
+include $(CONFIG)/RULES_TOP
+#Brute force correction to problems introduced to EPICS base RULES_TOP for R3.14.12.7
+uninstall:
+	rm -rf $(INSTALL_DATA)
+	rm -rf $(INSTALL_LOCATION_BIN)
+	rm -rf $(INSTALL_LOCATION_LIB)
