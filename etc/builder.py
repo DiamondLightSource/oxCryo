@@ -4,14 +4,14 @@ from iocbuilder.modules.calc import Calc
 from iocbuilder.modules.streamDevice import AutoProtocol
 
 
-class OXCryoLib(Device):
-    LibFileList = ["OXCryo"]
-    DbdFileList = ["OXCryoSupport"]
+class oxCryoLib(Device):
+    LibFileList = ["oxCryo"]
+    DbdFileList = ["oxCryoSupport"]
     AutoInstantiate = True
 
 
 class OXPH700(AutoSubstitution, AutoProtocol, Device):
-    Dependencies = (GenSub, OXCryoLib, Calc)
+    Dependencies = (GenSub, oxCryoLib, Calc)
     # Substitution attributes
     TemplateFile = "OXPH700.template"
 
@@ -20,7 +20,7 @@ class OXPH700(AutoSubstitution, AutoProtocol, Device):
 
 
 class OXCS700(AutoSubstitution, AutoProtocol, Device):
-    Dependencies = (GenSub, OXCryoLib, Calc)
+    Dependencies = (GenSub, oxCryoLib, Calc)
     # Substitution attributes
     TemplateFile = "OXCS700.template"
 
@@ -29,7 +29,7 @@ class OXCS700(AutoSubstitution, AutoProtocol, Device):
 
 
 class OXCB700(AutoSubstitution, AutoProtocol, Device):
-    Dependencies = (GenSub, OXCryoLib, Calc)
+    Dependencies = (GenSub, oxCryoLib, Calc)
     # Substitution attributes
     TemplateFile = "OXCB700.template"
 
@@ -38,7 +38,7 @@ class OXCB700(AutoSubstitution, AutoProtocol, Device):
 
 
 class OXNH700(AutoSubstitution, AutoProtocol, Device):
-    Dependencies = (GenSub, OXCryoLib, Calc)
+    Dependencies = (GenSub, oxCryoLib, Calc)
     # Substitution attributes
     TemplateFile = "OXNH700.template"
 
@@ -47,7 +47,7 @@ class OXNH700(AutoSubstitution, AutoProtocol, Device):
 
 
 class OXCB800(AutoSubstitution, AutoProtocol, Device):
-    Dependencies = (GenSub, OXCryoLib, Calc)
+    Dependencies = (GenSub, oxCryoLib, Calc)
     # Substitution attributes
     TemplateFile = "OXCB800.template"
 
