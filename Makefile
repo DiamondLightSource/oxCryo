@@ -9,12 +9,23 @@ DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard iocboot))
 # Comment out the following lines to disable creation of example iocs and documentation
 #DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard etc))
 
-ifeq ($(wildcard etc),etc)
-	include $(TOP)/etc/makeIocs/Makefile.iocs
-	UNINSTALL_DIRS += documentation/doxygen $(IOC_DIRS)
+ifneq (,$(findstring R3.14, $(EPICS_BASE)))
+  # If R3.14 is in EPICS_BASE then make the builder IOCs
+  # DLS IOC Builder is not currently supported in epics 7
+
+  ifeq ($(wildcard etc),etc)
+    include $(TOP)/etc/makeIocs/Makefile.iocs
+    UNINSTALL_DIRS += documentation/doxygen $(IOC_DIRS)
+  endif
+
+  # If prod is not in pwd then make the iocs
+  ifeq (,$(findstring prod, $(shell pwd)))
+  DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard iocs))
+  endif
+
 endif
 
 # Comment out the following line to disable building of example iocs
-DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard iocs))
+#DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard iocs))
 
-#include $(TOP)/configure/RULES_TOP
+include $(TOP)/configure/RULES_TOP
