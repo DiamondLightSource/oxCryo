@@ -13,13 +13,13 @@ LIBRARY_IOC += oxCryo
 
 # xxxRecord.dbd will be installed into <top>/dbd
 # DBD += oxCryovdct.dbd
-DBD += oxCryoSupport.dbd
+DBD += oxCryo.dbd
 
-oxCryoSupport_DBD += base.dbd
-oxCryoSupport_DBD += stream.dbd
-oxCryoSupport_DBD += asyn.dbd
-oxCryoSupport_DBD += calcSupport.dbd
-oxCryoSupport_DBD += alarmlookup.dbd
+oxCryo_DBD += base.dbd
+oxCryo_DBD += stream.dbd
+oxCryo_DBD += asyn.dbd
+oxCryo_DBD += calcSupport.dbd
+oxCryo_DBD += alarmlookup.dbd
 
 # The following are compiled and added to the support library
 oxCryo_SRCS += alarmlookup.c
