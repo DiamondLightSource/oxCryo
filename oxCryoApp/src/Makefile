@@ -16,9 +16,9 @@ LIBRARY_IOC += oxCryo
 DBD += oxCryo.dbd
 
 oxCryo_DBD += base.dbd
+oxCryo_DBD += calcSupport.dbd
 oxCryo_DBD += stream.dbd
 oxCryo_DBD += asyn.dbd
-oxCryo_DBD += calcSupport.dbd
 oxCryo_DBD += alarmlookup.dbd
 
 # The following are compiled and added to the support library
