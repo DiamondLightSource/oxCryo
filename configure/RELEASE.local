@@ -9,7 +9,6 @@
 # External module definitions (prod release).
 STREAMDEVICE=	$(SUPPORT)/streamDevice/2-5dls14
 ASYN=   $(SUPPORT)/asyn/4-41dls2
-GENSUB= $(SUPPORT)/genSub/1-8dls3
 CALC=   $(SUPPORT)/calc/3-7-3
 
 #Capfast users may need the following definitions
