@@ -7,7 +7,7 @@
 # EPICS_BASE      = /dls_sw/epics/R3.14.12.7/base
 
 # External module definitions (prod release).
-STREAM=	$(SUPPORT)/streamDevice/2-5dls14
+STREAMDEVICE=	$(SUPPORT)/streamDevice/2-5dls14
 ASYN=   $(SUPPORT)/asyn/4-41dls2
 CALC=   $(SUPPORT)/calc/3-7-3
 
