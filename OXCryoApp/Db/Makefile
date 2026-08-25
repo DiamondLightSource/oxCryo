@@ -14,6 +14,7 @@ include $(TOP)/configure/CONFIG
 DB += OXCB700.template
 DB += OXCB800.template
 DB += OXCS700.template
+DB += OXCS1000.template
 DB += OXPH700.template
 DB += OXNH700.template
 
