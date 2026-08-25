@@ -3,18 +3,18 @@
 
 #include <dbDefs.h>
 #include <registryFunction.h>
-#include <genSubRecord.h>
+#include <aSubRecord.h>
 #include <epicsExport.h>
 #include <alarm.h>
 #include <recGbl.h>
 
-typedef long (*processMethod)(genSubRecord *precord);
+typedef long (*processMethod)(aSubRecord *precord);
 
-static long alarmlookupProcess(genSubRecord *p)
+static long alarmlookupProcess(aSubRecord *p)
 {
 	/* lookup a string from an int value */
 	int lookupval = *(int *)p->a;
-	char* strArray[] = {"No Alarm",
+	char *strArray[] = {"No Alarm",
 						"Stop Button Pressed",
 						"Stop Command Received",
 						"End Phase Done",
@@ -71,18 +71,21 @@ static long alarmlookupProcess(genSubRecord *p)
 						"Regen complete",
 						"Connect vacuum",
 						"Disconnect vacuum"};
-	if (lookupval < sizeof(strArray)/sizeof(strArray[0]))
+	if (lookupval < sizeof(strArray) / sizeof(strArray[0]))
 	{
-		strcpy(p->vala,strArray[lookupval]);
-		if ((lookupval>0)&(lookupval<3)) return(0);
-		else if (((lookupval>4)&(lookupval<46))|(lookupval>47)) return(-1);
-		else return(0);
+		strcpy(p->vala, strArray[lookupval]);
+		if ((lookupval > 0) & (lookupval < 3))
+			return (0);
+		else if (((lookupval > 4) & (lookupval < 46)) | (lookupval > 47))
+			return (-1);
+		else
+			return (0);
 	}
 	else
 	{
-		strcpy(p->vala,"Illegal Alarm");
+		strcpy(p->vala, "Illegal Alarm");
 	}
-    return(0);
+	return (0);
 }
 
 /* Register these symbols for use by IOC code: */

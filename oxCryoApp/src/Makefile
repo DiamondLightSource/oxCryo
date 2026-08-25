@@ -19,7 +19,6 @@ oxCryoSupport_DBD += base.dbd
 oxCryoSupport_DBD += stream.dbd
 oxCryoSupport_DBD += asyn.dbd
 oxCryoSupport_DBD += calcSupport.dbd
-oxCryoSupport_DBD += genSubRecord.dbd
 oxCryoSupport_DBD += alarmlookup.dbd
 
 # The following are compiled and added to the support library
