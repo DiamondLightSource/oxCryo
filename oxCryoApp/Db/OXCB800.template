@@ -6,6 +6,8 @@
 # % macro, PORT, Asyn port to connect to
 # % macro, CTEMP_MIN, macro to set minimum target temperature
 # % macro, CTEMP_MAX, macro to set maximum target temperature
+# % macro, _CTEMP_DRVL, macro to set CTEMP.DRVL
+# % macro, _CTEMP_DRVH, macro to set CTEMP.DRVH
 
 # % archiver 1 Monitor
 # %gdatag,mbbinary,ro,$(gda_name=),PHASE
