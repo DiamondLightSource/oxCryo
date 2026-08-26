@@ -11,21 +11,55 @@ LIBRARY_IOC += oxCryo
 # xxxRecord.h will be created from xxxRecord.dbd
 #DBDINC += xxx.h
 
-# xxxRecord.dbd will be installed into <top>/dbd
-# DBD += oxCryovdct.dbd
-DBD += oxCryo.dbd
+# xxx.dbd will be installed into <top>/dbd
+##DBD += xxx.dbd
+##xxx_DBD += base.dbd
 
+# The following are compiled and added to the support library
+#xxx_SRCS += xxxCodeA.c
+#xxx_SRCS += xxxCodeB.c
+
+# We need to link against the EPICS Base libraries
+##oxCryo_LIBS += $(EPICS_BASE_IOC_LIBS)
+
+# ------------------------
+# Build an IOC Application
+# ------------------------
+
+##PROD_IOC = oxCryo
+
+# xxx.h will be created from xxx.dbd
+#DBDINC += xxx.h
+
+# xxx.dbd will be installed into <top>/dbd
+DBD += oxCryo.dbd
+DBD += oxCryoSupport.dbd
+
+# oxCryo.dbd will be created from these files
 oxCryo_DBD += base.dbd
 oxCryo_DBD += calcSupport.dbd
 oxCryo_DBD += stream.dbd
 oxCryo_DBD += asyn.dbd
-oxCryo_DBD += alarmlookup.dbd
+
+# oxCryoSupport.dbd will be created from these files
+oxCryoSupport_DBD += alarmlookup.dbd
 
 # The following are compiled and added to the support library
-oxCryo_SRCS += alarmlookup.c
+oxCryoSupport_SRCS += alarmlookup.c
+
+# These two lines are needed for non-vxWorks builds, such as Linux
+oxCryo_SRCS_DEFAULT += oxCryoMain.cpp
+oxCryo_SRCS_vxWorks += -nil-
+
+# Add locally compiled object code
+#oxCryo_SRCS +=
 
 # We need to link against the EPICS Base libraries
-#xxx_LIBS += $(EPICS_BASE_IOC_LIBS)
+oxCryo_LIBS += $(EPICS_BASE_IOC_LIBS)
+
+# This line says that this IOC Application depends on the
+# xxx Support Module
+#oxCryo_LIBS += xxx
 
 # do debug build
 # CXXFLAGS= -g -O0 -fPIC
