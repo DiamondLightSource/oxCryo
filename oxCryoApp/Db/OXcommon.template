@@ -1,6 +1,13 @@
+# % macro, __doc__, Control for Oxford Cryostreams
+#
+# Macros:
+# % macro, P, Device Prefix
+# % macro, Q, Device suffix
+# % macro, PORT, Asyn port to connect to
 # % macro, DISABLE_COMMS, Optional macro to control whether comms are disabled (1) or not (0) on startup. Defaults to disabled
-# % macro, CTEMP_DRVL, macro to set CTEMP.DRVL
-# % macro, CTEMP_DRVH, mactro to set CTEMP.DRVH
+# % macro, _CTEMP_DRVL, macro to set CTEMP.DRVL
+# % macro, _CTEMP_DRVH, macro to set CTEMP.DRVH
+
 record(mbbi, "$(P)$(Q):TYPE")
 {
   field(DESC, "Status Packet Type")

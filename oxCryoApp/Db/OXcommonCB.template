@@ -1,14 +1,13 @@
-# % macro, __doc__, Control for Oxford Cryostream 800 series (Cobra)
+# % macro, __doc__, Control for Oxford Cryostreams (Cobra)
 #
 # Macros:
 # % macro, P, Device Prefix
 # % macro, Q, Device suffix
 # % macro, PORT, Asyn port to connect to
-# % macro, gda_name, Name in gda interface file (Default = )
-# % macro, gda_desc, Description in gda interface file (Default = )
-# % macro, name, Object and gui association name
-# % macro, CTEMP_DRVL, macro to set CTEMP.DRVL
-# % macro, CTEMP_DRVH, mactro to set CTEMP.DRVH
+# % macro, DISABLE_COMMS, Optional macro to control whether comms are disabled (1) or not (0) on startup. Defaults to disabled
+# % macro, _CTEMP_DRVL, macro to set CTEMP.DRVL
+# % macro, _CTEMP_DRVH, macro to set CTEMP.DRVH
+
 # % archiver 1 Monitor
 # %gdatag,mbbinary,ro,$(gda_name=),PHASE
 record(mbbi, "$(P)$(Q):PHASE") {
@@ -51,11 +50,11 @@ record(ai, "$(P)$(Q):BACKPRESS") {
   field(EGU, "bar")
 }
 
-substitute "_CTEMP_DRVL=$(CTEMP_DRVL)"
-substitute "_CTEMP_DRVH=$(CTEMP_DRVH)"
 
+substitute "_CTEMP_DRVL=$(_CTEMP_DRVL)"
+substitute "_CTEMP_DRVH=$(_CTEMP_DRVH)"
+# This needs to be AFTER the substitutions so that the macros can be inherited
 include "OXcommon.template"
-
 
 # % archiver 1 Monitor
 record(ai, "$(P)$(Q):REFRTEMP") {

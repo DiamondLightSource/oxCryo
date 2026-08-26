@@ -4,15 +4,10 @@
 # % macro, P, Device Prefix
 # % macro, Q, Device suffix
 # % macro, PORT, Asyn port to connect to
-# % macro, gda_name, Name in gda interface file (Default = )
-# % macro, gda_desc, Description in gda interface file (Default = )
-# % macro, name, Object and gui association name
 # % macro, CTEMP_MIN, macro to set minimum target temperature
 # % macro, CTEMP_MAX, macro to set maximum target temperature
-#% gui, $(name=), edm, OXCS700.edl, CS=$(P)$(Q)
-#% gui, $(name=), edmembed, OXCS700_embed.edl, P=$(P),Q=$(Q)
-
-# %gdatag,template,OXCS700,$(gda_name=),$(gda_desc=)
+# % macro, _CTEMP_DRVL, macro to set CTEMP.DRVL
+# % macro, _CTEMP_DRVH, macro to set CTEMP.DRVH
 
 # % archiver 1 Monitor
 # %gdatag,mbbinary,ro,$(gda_name=),PHASE
@@ -56,9 +51,10 @@ record(ai, "$(P)$(Q):BACKPRESS") {
   field(EGU, "bar")
 }
 
+
 substitute "_CTEMP_DRVL=$(CTEMP_MIN=80)"
 substitute "_CTEMP_DRVH=$(CTEMP_MAX=327.67)"
-
+# This needs to be AFTER the substitutions so that the macros can be inherited
 include "OXcommon.template"
 
 
