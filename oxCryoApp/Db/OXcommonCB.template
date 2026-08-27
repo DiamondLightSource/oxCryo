@@ -5,8 +5,6 @@
 # % macro, Q, Device suffix
 # % macro, PORT, Asyn port to connect to
 # % macro, DISABLE_COMMS, Optional macro to control whether comms are disabled (1) or not (0) on startup. Defaults to disabled
-# % macro, _CTEMP_DRVL, macro to set CTEMP.DRVL
-# % macro, _CTEMP_DRVH, macro to set CTEMP.DRVH
 
 # % archiver 1 Monitor
 # %gdatag,mbbinary,ro,$(gda_name=),PHASE
@@ -49,12 +47,6 @@ record(ai, "$(P)$(Q):BACKPRESS") {
   field(PREC, "2")
   field(EGU, "bar")
 }
-
-
-substitute "_CTEMP_DRVL=$(_CTEMP_DRVL)"
-substitute "_CTEMP_DRVH=$(_CTEMP_DRVH)"
-# This needs to be AFTER the substitutions so that the macros can be inherited
-include "OXcommon.template"
 
 # % archiver 1 Monitor
 record(ai, "$(P)$(Q):REFRTEMP") {
