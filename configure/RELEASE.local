@@ -1,17 +1,1 @@
-# The following definitions must be changed for each site
-
-# These following three base definitions are overwritten by definitions in
-# the RELEASE.<arch>.Common files. Included here for information only.
-# SUPPORT         = /dls_sw/prod/R3.14.12.7/support
-# WORK            = /dls_sw/work/R3.14.12.7/support
-# EPICS_BASE      = /dls_sw/epics/R3.14.12.7/base
-
-# External module definitions (prod release).
-STREAMDEVICE=	$(SUPPORT)/streamDevice/2-5dls14
-ASYN=   $(SUPPORT)/asyn/4-41dls2
-CALC=   $(SUPPORT)/calc/3-7-3
-
-#Capfast users may need the following definitions
-#CAPFAST_TEMPLATES=
-#SCH2EDIF_PATH=
--include $(TOP)/configure/RELEASE.private
+/epics/support/configure/RELEASE
